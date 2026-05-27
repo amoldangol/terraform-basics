@@ -42,9 +42,9 @@ jobs:
         run: terraform fmt -check
       
       - name: terraform action
-        if: ${{ github.event.inputs.terraform_action = 'apply' }}
+        if: ${{ github.event.inputs.terraform_action == 'apply' }}
         run: terraform apply --auto-approve
 
       - name: terraform destroy
-        if: ${{ github.event.inputs.terraform_action = 'destroy' }}
+        if: ${{ github.event.inputs.terraform_action == 'destroy' }}
         run: terraform destroy --auto-approve
